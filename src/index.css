@@ -2,27 +2,27 @@
 
 /* ====== CSS Variables ====== */
 :root {
-  --bg-primary: #0c0a09;
-  --bg-secondary: #1c1917;
-  --bg-card: #292524;
-  --bg-card-hover: #44403c;
-  --text-primary: #fafaf9;
-  --text-secondary: #a8a29e;
-  --text-muted: #78716c;
-  --accent: #d97706;
-  --accent-light: #f59e0b;
-  --accent-glow: rgba(217, 119, 6, 0.3);
-  --coffee-dark: #78350f;
-  --coffee-medium: #92400e;
-  --cream: #fef3c7;
+  --bg-primary: #080b14;
+  --bg-secondary: #0f1629;
+  --bg-card: #151d35;
+  --bg-card-hover: #1e2a4a;
+  --text-primary: #f0f4ff;
+  --text-secondary: #94a3c8;
+  --text-muted: #5e6e8a;
+  --accent: #3b82f6;
+  --accent-light: #60a5fa;
+  --accent-glow: rgba(59, 130, 246, 0.3);
+  --coffee-dark: #1e3a5f;
+  --coffee-medium: #1e40af;
+  --cream: #dbeafe;
   --border: rgba(255, 255, 255, 0.06);
   --border-hover: rgba(255, 255, 255, 0.12);
-  --glass: rgba(28, 25, 23, 0.8);
+  --glass: rgba(15, 22, 41, 0.8);
   --glass-border: rgba(255, 255, 255, 0.08);
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 0 40px rgba(217, 119, 6, 0.15);
+  --shadow-glow: 0 0 40px rgba(59, 130, 246, 0.15);
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 20px;
@@ -69,8 +69,8 @@ body {
   width: 100%;
   height: 100%;
   background:
-    radial-gradient(ellipse at 20% 0%, rgba(217, 119, 6, 0.08) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 100%, rgba(120, 53, 15, 0.06) 0%, transparent 60%);
+    radial-gradient(ellipse at 20% 0%, rgba(59, 130, 246, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 100%, rgba(30, 58, 95, 0.06) 0%, transparent 60%);
   pointer-events: none;
   z-index: 0;
 }
@@ -84,7 +84,7 @@ body {
 .header-bg {
   position: relative;
   background:
-    linear-gradient(135deg, rgba(120, 53, 15, 0.4) 0%, rgba(12, 10, 9, 0.95) 60%),
+    linear-gradient(135deg, rgba(30, 58, 95, 0.4) 0%, rgba(8, 11, 20, 0.95) 60%),
     url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1600&h=600&fit=crop') center/cover no-repeat;
   padding: 60px 24px 40px;
   overflow: hidden;
@@ -107,15 +107,22 @@ body {
   right: -10%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(217, 119, 6, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
   border-radius: 50%;
   animation: float 8s ease-in-out infinite;
   z-index: 1;
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-30px) scale(1.05); }
+
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-30px) scale(1.05);
+  }
 }
 
 .header-content {
@@ -129,8 +136,8 @@ body {
 .header-badge {
   display: inline-block;
   padding: 6px 18px;
-  background: rgba(217, 119, 6, 0.15);
-  border: 1px solid rgba(217, 119, 6, 0.3);
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.3);
   border-radius: 100px;
   font-size: 0.85rem;
   font-weight: 600;
@@ -219,8 +226,8 @@ body {
   box-shadow: 0 0 0 3px var(--accent-glow), var(--shadow-md);
 }
 
-.search-input:focus ~ .search-icon,
-.search-input:focus + .search-icon {
+.search-input:focus~.search-icon,
+.search-input:focus+.search-icon {
   color: var(--accent-light);
 }
 
@@ -323,6 +330,7 @@ body {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -461,8 +469,8 @@ body {
 
 .tag {
   padding: 4px 12px;
-  background: rgba(217, 119, 6, 0.1);
-  border: 1px solid rgba(217, 119, 6, 0.15);
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.15);
   border-radius: 100px;
   font-size: 0.75rem;
   font-weight: 500;
@@ -471,8 +479,8 @@ body {
 }
 
 .coffee-card:hover .tag {
-  background: rgba(217, 119, 6, 0.15);
-  border-color: rgba(217, 119, 6, 0.25);
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.25);
 }
 
 .card-stars {
@@ -505,7 +513,9 @@ body {
 }
 
 @keyframes starPulse {
-  50% { transform: scale(1.2); }
+  50% {
+    transform: scale(1.2);
+  }
 }
 
 /* ====== No Results ====== */
