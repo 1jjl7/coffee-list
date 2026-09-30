@@ -1,16 +1,58 @@
-# React + Vite
+# ☕ Al Qassim Coffee Shops | مقاهي القصيم
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A bilingual (English / Arabic) directory of 12 specialty coffee shops across the Al Qassim region of Saudi Arabia, with instant search and city filtering.
 
-Currently, two official plugins are available:
+**🔗 Live demo: [coffees-in-qassim.vercel.app](https://coffees-in-qassim.vercel.app)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+![Home page](screenshots/home.png)
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Instant search** by shop name (English or Arabic), description, or tag
+- **City filter** (Buraydah, Unaizah, Ar Rass) — the list of cities is built automatically from the data
+- **Card view** with photo, rating, location, opening hours, and tags
+- **Clear Filters** button and a friendly "no results" state
+- **Responsive layout** that adapts to tablet and mobile screens
 
-## Expanding the Oxlint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- [React 19](https://react.dev/) (hooks: `useState`, `useMemo`)
+- [Vite](https://vite.dev/) for development and build
+- Plain CSS (no UI library)
+- Deployed on [Vercel](https://vercel.com/)
+
+## How It Works
+
+All shop data lives in a single JavaScript array (`src/data/coffeeShops.js`), so there is no backend or database. `App.jsx` keeps the search text and selected city in state, and filters the array with `useMemo` so the list is only recomputed when one of them changes. Each result is rendered by a `CoffeeCard` component.
+
+## Project Structure
+
+```
+src/
+├── App.jsx                 # state + filtering logic
+├── components/
+│   ├── Header.jsx          # hero, search box, city buttons
+│   ├── CoffeeCard.jsx      # one shop card (rating stars, tags)
+│   └── Footer.jsx
+├── data/coffeeShops.js     # the 12 coffee shops
+└── index.css               # all styles
+```
+
+## Run Locally
+
+```bash
+git clone https://github.com/1jjl7/coffee-list.git
+cd coffee-list
+npm install
+npm run dev
+```
+
+Then open the URL printed in the terminal (usually http://localhost:5173).
+
+## Adding a Shop
+
+Add a new object to the array in `src/data/coffeeShops.js` with the same fields as the others (`id`, `name`, `nameAr`, `location`, `locationAr`, `description`, `rating`, `hours`, `tags`, `image`). It appears on the page automatically — a new city will also get its own filter button.
+
+## Author
+
+**Ahmed Maher Algaoni** — [GitHub](https://github.com/1jjl7) · [Portfolio](https://1jjl7.github.io)
